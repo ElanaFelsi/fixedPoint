@@ -16,17 +16,5 @@ gtest/gtest.h
 price.h
 /home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.h
 
-/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/main.cpp
-iostream
--
-TestPrice.h
-/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/TestPrice.h
-gtest/gtest.h
--
-
-/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.cpp
-price.h
-/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.h
-
 /home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.h
 

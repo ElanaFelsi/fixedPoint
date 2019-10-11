@@ -9,28 +9,25 @@
 
 class Price {
 public:
-    Price(int dollar = 0, int cent = 0.00);
-    int getPrice() const;
-    Price &operator=(const Price &other);
-    /*Price &operator=(int dollar);*/
+    explicit Price(int dollar = 0, int cent = 0.00);
 
+    Price &operator=(const Price &other);
+    Price &operator=(const int dollar);
+
+    Price &operator+=(const Price &other);
+    Price &operator-=(const Price &other);
+    Price &operator*=(const Price &other);
+    Price &operator/=(const Price &other);
+    Price &operator%=(const Price &other);
+
+    int getPrice() const;
 private:
     int m_price;
 
 };
 
-inline Price::Price(int dollar, int cent):m_price(dollar * REPRESENTATION + cent)
-{
-}
+inline Price::Price(int dollar, int cent):m_price(dollar * REPRESENTATION + cent){}
 
-inline int Price::getPrice() const
-{
-    return m_price;
-}
-
-/*
- *
- */
 inline Price &Price::operator=(const Price &other) {
     if(this != &other)
     {
@@ -38,5 +35,74 @@ inline Price &Price::operator=(const Price &other) {
     }
     return *this;
 }
+
+inline Price &Price::operator=(const int dollar) {
+    this->m_price = dollar * REPRESENTATION;
+    return *this;
+}
+
+inline Price &Price::operator+=(const Price &other) {
+    m_price += other.m_price;
+    return *this;
+}
+
+inline Price &Price::operator-=(const Price &other) {
+    m_price -= other.m_price;
+    return *this;
+}
+
+inline Price &Price::operator*=(const Price &other) {
+    m_price *= other.m_price;
+    m_price /= REPRESENTATION;
+    return *this;
+}
+
+inline Price &Price::operator/=(const Price &other) {
+    m_price /= other.m_price;
+    m_price *= REPRESENTATION;
+    return *this;
+}
+
+inline Price &Price::operator%=(const Price &other) {
+    m_price %= other.m_price;
+    return *this;
+}
+
+inline int Price::getPrice() const
+{
+    return m_price;
+}
+
+inline bool operator==(const Price &p1, const Price &p2)
+{
+    return p1.getPrice() == p2.getPrice();
+}
+
+inline bool operator==(const Price &p1, const int p2)
+{
+    return p1.getPrice() == p2;
+}
+
+inline bool operator<(const Price &p1, const Price &p2)
+{
+    return p1.getPrice() < p2.getPrice();
+}
+inline bool operator>(const Price &p1, const Price &p2)
+{
+    return p1.getPrice() > p2.getPrice();
+}
+inline bool operator<=(const Price &p1, const Price &p2)
+{
+    return !(p1 > p2);
+}
+inline bool operator>=(const Price &p1, const Price &p2)
+{
+    return !(p1 < p2);
+}
+inline bool operator!=(const Price &p1, const Price &p2)
+{
+    return !(p1 == p2);
+}
+
 
 #endif //CPP_FIXED_POINT_ELANAFELSI_PRICE_H
