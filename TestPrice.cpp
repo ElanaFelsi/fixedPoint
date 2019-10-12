@@ -22,7 +22,7 @@ TEST(PriceTest, assignmentOpr)
     ASSERT_TRUE(p2.getPrice() == 100);
 }
 
-TEST(PriceTest, BoolOverloadOpr)
+TEST(PriceTest, CmpOpr)
 {
     Price p1(5);
     Price p2(5, 5);
@@ -31,17 +31,16 @@ TEST(PriceTest, BoolOverloadOpr)
     ASSERT_TRUE(p1 < p2);
 }
 
-TEST(PriceTest, OverloadOpr)
+TEST(PriceTest, arithmeticOpr)
 {
     Price p1(5);
     Price p2(1);
-    p1 += p2;
-    ASSERT_EQ(p1, 600);
-    p1 -= p2;
-    ASSERT_EQ(p1, 500);
-    p1 *= p2;
-    ASSERT_EQ(p1, 500);
-    p1 /= p2;
-    ASSERT_EQ(p1, 500);
+
+    ASSERT_EQ(p1 += p2, 600);
+    ASSERT_EQ(p1 -= p2, 500);
+    ASSERT_EQ(p1 *= p2, 500);
+    ASSERT_EQ(p1/=p2, 500);
+    ASSERT_EQ(++p2, 101);
+    std::cout << p2.int2double();
 
 }

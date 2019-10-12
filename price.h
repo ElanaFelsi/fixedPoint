@@ -144,7 +144,7 @@ inline int Price::getPrice() const
 }
 
 std::ostream &operator<<(std::ostream &out, Price price) {
-    out << price.m_price;
+    out << price.m_price << "\n";
     return out;
 }
 
