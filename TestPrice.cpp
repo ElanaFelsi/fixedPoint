@@ -43,4 +43,5 @@ TEST(PriceTest, OverloadOpr)
     ASSERT_EQ(p1, 500);
     p1 /= p2;
     ASSERT_EQ(p1, 500);
+
 }
