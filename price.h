@@ -6,18 +6,19 @@
 
 #define REPRESENTATION 100
 
+template <typename T, unsigned int SIZE>
 class Price {
 public:
-    explicit Price(int dollar = 0, int cent = 0.00);
+    explicit Price(T dollar = 0, T cent = 0.00);
 
-    Price &operator=(const Price &other);
-    Price &operator=(const int dollar);
+    Price &operator=(const Price<T, SIZE> &other);
+    Price &operator=(const T dollar);
 
-    Price &operator+=(const Price &other);
-    Price &operator-=(const Price &other);
-    Price &operator*=(const Price &other);
-    Price &operator/=(const Price &other);
-    Price &operator%=(const Price &other);
+    Price &operator+=(const Price<T, SIZE> &other);
+    Price &operator-=(const Price<T, SIZE> &other);
+    Price &operator*=(const Price<T, SIZE> &other);
+    Price &operator/=(const Price<T, SIZE> &other);
+    Price &operator%=(const Price<T, SIZE> &other);
 
     Price& operator++();
     Price& operator--();
@@ -27,19 +28,21 @@ public:
 
     Price& operator-();
 
-    double int2double();
+    double T2double();
 
-    friend std::ostream& operator<<(std::ostream& out, const Price price);
+    //friend std::ostream& operator<<(std::ostream& out, const Price<T> price);
 
-    int getPrice() const;
+    T getPrice() const;
 private:
-    int m_price;
+    T m_price;
 
 };
 
-inline Price::Price(int dollar, int cent):m_price(dollar * REPRESENTATION + cent){}
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE>::Price(T dollar, T cent):m_price(dollar * REPRESENTATION + cent){}
 
-inline Price &Price::operator=(const Price &other) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator=(const Price<T, SIZE> &other) {
     if(this != &other)
     {
         this->m_price = other.m_price;
@@ -47,134 +50,164 @@ inline Price &Price::operator=(const Price &other) {
     return *this;
 }
 
-inline Price &Price::operator=(const int dollar) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator=(const T dollar) {
     this->m_price = dollar * REPRESENTATION;
     return *this;
 }
 
-inline Price &Price::operator+=(const Price &other) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator+=(const Price<T, SIZE> &other) {
     m_price += other.m_price;
     return *this;
 }
 
-inline Price &Price::operator-=(const Price &other) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator-=(const Price<T, SIZE> &other) {
     m_price -= other.m_price;
     return *this;
 }
 
-inline Price &Price::operator*=(const Price &other) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator*=(const Price<T, SIZE> &other) {
     m_price *= other.m_price;
     m_price /= REPRESENTATION;
     return *this;
 }
 
-inline Price &Price::operator/=(const Price &other) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator/=(const Price<T, SIZE> &other) {
     m_price /= other.m_price;
     m_price *= REPRESENTATION;
     return *this;
 }
 
-inline Price &Price::operator%=(const Price &other) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator%=(const Price<T, SIZE> &other) {
     m_price %= other.m_price;
     return *this;
 }
 
-inline Price &Price::operator++() {
-    ++m_price;
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator++() {
+    m_price = m_price + REPRESENTATION;
     return *this;
 }
 
-inline Price &Price::operator--() {
-    --m_price;
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator--() {
+    m_price = m_price - REPRESENTATION;
     return *this;
 }
 
-inline Price Price::operator++(int num) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> Price<T, SIZE>::operator++(int num) {
     Price temp;
     temp.m_price = this->m_price;
-    ++m_price;
+    m_price = m_price + REPRESENTATION;
     return temp;
 }
 
-inline Price Price::operator--(int num) {
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> Price<T, SIZE>::operator--(int num) {
     Price temp;
     temp.m_price = this->m_price;
-    --m_price;
+    m_price = m_price - REPRESENTATION;
     return temp;
 }
 
-inline Price& Price::operator-()
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> &Price<T, SIZE>::operator-()
 {
     m_price = -m_price;
     return *this;
 }
 
-inline Price operator+(const Price &p1, const Price &p2)
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> operator+(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
-    return Price(p1.getPrice() + p2.getPrice());
+    return Price<T, SIZE>(p1.getPrice() + p2.getPrice());
 }
 
-inline Price operator-(const Price &p1, const Price &p2)
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> operator-(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
-    return Price(p1.getPrice() - p2.getPrice());
+    return Price<T, SIZE>(p1.getPrice() - p2.getPrice());
 }
 
-inline Price operator*(const Price &p1, const Price &p2)
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> operator*(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
-    return Price((p1.getPrice() * p2.getPrice()) / REPRESENTATION);
+    return Price<T, SIZE>((p1.getPrice() * p2.getPrice()) / REPRESENTATION);
 }
 
-inline Price operator/(const Price &p1, const Price &p2)
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> operator/(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
-    return Price((p1.getPrice() / p2.getPrice()) * REPRESENTATION);
+    return Price<T, SIZE>((p1.getPrice() / p2.getPrice()) * REPRESENTATION);
 }
 
-inline Price operator%(const Price &p1, const Price &p2)
+template <typename T, unsigned int SIZE>
+inline Price<T, SIZE> operator%(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
-    return Price(p1.getPrice() % p2.getPrice());
+    return Price<T, SIZE>(p1.getPrice() % p2.getPrice());
 }
 
-double Price::int2double() {
+template <typename T, unsigned int SIZE>
+double Price<T, SIZE>::T2double() {
     return (double)m_price;
 }
 
-inline int Price::getPrice() const
+template <typename T, unsigned int SIZE>
+inline T Price<T, SIZE>::getPrice() const
 {
     return m_price;
 }
-
-std::ostream &operator<<(std::ostream &out, Price price) {
+/*
+template <typename T>
+std::ostream &operator<<(std::ostream &out, Price<T> price) {
     out << price.m_price << "\n";
     return out;
-}
+}*/
 
-inline bool operator==(const Price &p1, const Price &p2)
+template <typename T, unsigned int SIZE>
+inline bool operator==(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
     return p1.getPrice() == p2.getPrice();
 }
 
-inline bool operator==(const Price &p1, const int p2)
+template <typename T, unsigned int SIZE>
+inline bool operator==(const Price<T, SIZE> &p1, const T p2)
 {
     return p1.getPrice() == p2;
 }
 
-inline bool operator<(const Price &p1, const Price &p2)
+template <typename T, unsigned int SIZE>
+inline bool operator<(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
     return p1.getPrice() < p2.getPrice();
 }
-inline bool operator>(const Price &p1, const Price &p2)
+
+template <typename T, unsigned int SIZE>
+inline bool operator>(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
     return p1.getPrice() > p2.getPrice();
 }
-inline bool operator<=(const Price &p1, const Price &p2)
+
+template <typename T, unsigned int SIZE>
+inline bool operator<=(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
     return !(p1 > p2);
 }
-inline bool operator>=(const Price &p1, const Price &p2)
+
+template <typename T, unsigned int SIZE>
+inline bool operator>=(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
     return !(p1 < p2);
 }
-inline bool operator!=(const Price &p1, const Price &p2)
+
+template <typename T, unsigned int SIZE>
+inline bool operator!=(const Price<T, SIZE> &p1, const Price<T, SIZE> &p2)
 {
     return !(p1 == p2);
 }

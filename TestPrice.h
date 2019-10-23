@@ -1,7 +1,9 @@
 #ifndef CPP_FIXED_POINT_ELANAFELSI_TESTPRICE_H
 #define CPP_FIXED_POINT_ELANAFELSI_TESTPRICE_H
 
-#include "price.h"
+//#include "price.h"
+
+#include "fixed_point.h"
 
 
 

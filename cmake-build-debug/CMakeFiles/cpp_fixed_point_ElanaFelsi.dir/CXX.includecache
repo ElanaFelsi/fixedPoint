@@ -13,8 +13,16 @@ gtest/gtest.h
 -
 
 /home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/TestPrice.h
-price.h
-/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.h
+fixed_point.h
+/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/fixed_point.h
 
-/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.h
+/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/fixed_point.h
+iostream
+-
+iomanip
+-
+my_math.h
+/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/my_math.h
+
+/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/my_math.h
 
