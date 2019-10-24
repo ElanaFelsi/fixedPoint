@@ -20,8 +20,8 @@ TEST(FPTest, CTOR_FP)
 
 TEST(PriceTest, selfPlus)
 {
-    FixedPoint<2, int> fixedPoint1(2, 07);
-    FixedPoint<2, int> fixedPoint2(1, 03);
+    FixedPoint<9, int> fixedPoint1(2, 077777);
+    FixedPoint<9, int> fixedPoint2(1, 037777);
     fixedPoint1 += fixedPoint2;
     std::cout << fixedPoint1;
 

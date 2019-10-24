@@ -44,9 +44,6 @@ public:
         return out;
     }
 
-private:
-    T m_integer;
-public:
     T getMInteger() const;
 
     void setMInteger(T mInteger);
@@ -60,6 +57,7 @@ public:
     void setMSigned(bool mSigned);
 
 private:
+    T m_integer;
     unsigned int m_fraction;
     bool m_signed;
 
