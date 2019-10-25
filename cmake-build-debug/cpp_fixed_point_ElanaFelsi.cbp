@@ -90,6 +90,9 @@
 		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/TestPrice.h">
 			<Option target="cpp_fixed_point_ElanaFelsi"/>
 		</Unit>
+		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/color.h">
+			<Option target="cpp_fixed_point_ElanaFelsi"/>
+		</Unit>
 		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/fixed_point.h">
 			<Option target="cpp_fixed_point_ElanaFelsi"/>
 		</Unit>
@@ -97,6 +100,9 @@
 			<Option target="cpp_fixed_point_ElanaFelsi"/>
 		</Unit>
 		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/my_math.h">
+			<Option target="cpp_fixed_point_ElanaFelsi"/>
+		</Unit>
+		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/number2word.h">
 			<Option target="cpp_fixed_point_ElanaFelsi"/>
 		</Unit>
 		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.cpp">

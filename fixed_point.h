@@ -3,8 +3,11 @@
 
 #include <iostream>
 #include <iomanip>
+#include <string>
+#include <sstream>
 
 #include "my_math.h"
+
 
 
 template<unsigned int SIZE, typename T = int>
@@ -36,7 +39,8 @@ public:
 
     double T2double();*/
 
-    unsigned char getPrecision();
+
+
     friend std::ostream &operator<<(std::ostream &out, FixedPoint fixedPoint) {
         if (fixedPoint.m_signed)
             out << '-';
@@ -56,6 +60,12 @@ public:
 
     void setMSigned(bool mSigned);
 
+    static const unsigned int m_size = SIZE;
+
+    std::string asString();
+
+    std::string writeAsWord();
+
 private:
     T m_integer;
     unsigned int m_fraction;
@@ -70,7 +80,7 @@ template<unsigned int SIZE, typename T>
 FixedPoint<SIZE, T> operator-(const FixedPoint<SIZE, T> &first, const FixedPoint<SIZE, T> &other);
 
 template<unsigned int SIZE, typename T>
-FixedPoint<SIZE, T>::FixedPoint(T integer, int fraction) {
+FixedPoint<SIZE, T>::FixedPoint(T integer, int fraction){
     if (integer < 0) {
         m_signed = true;
         m_integer = integer * -1;
@@ -125,7 +135,7 @@ FixedPoint<SIZE, T> &FixedPoint<SIZE, T>::operator+=(const FixedPoint<SIZE, T> &
         m_fraction = (other.m_fraction + m_fraction) % Power<SIZE>(10);
         m_integer += other.m_integer;
         if (m_integer < other.m_integer) {
-            throw "overflow";
+            throw std::overflow_error("overflow");
         }
     } else {
         if(!m_signed){
@@ -211,8 +221,12 @@ void FixedPoint<SIZE, T>::setMSigned(bool mSigned) {
 }
 
 template<unsigned int SIZE, typename T>
-inline unsigned char FixedPoint<SIZE, T>::getPrecision() {
-    return (unsigned char)SIZE;
+inline std::string FixedPoint<SIZE, T>::asString(){
+    std::ostringstream convert1;
+    std::ostringstream convert2;
+    convert1 << m_integer;
+    convert2 << m_fraction;
+    return convert1.str() + "." + convert2.str();
 }
 
 template<unsigned int SIZE, typename T>

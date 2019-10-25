@@ -1,4 +1,6 @@
 #include "TestPrice.h"
+#include "color.h"
+#include "number2word.h"
 #include <gtest/gtest.h>
 
 
@@ -12,13 +14,13 @@ TEST(FPTest, CTOR_FP)
     std::cout << fixedPoint3;
     FixedPoint<2, int> fixedPoint4 (0, -04);
     std::cout << fixedPoint4;
-    FixedPoint<9, char> fixedPoint5 (0, 5678);
+    FixedPoint<9, char> fixedPoint5 (0, 8);
     std::cout << fixedPoint5;
     FixedPoint<4, int> fixedPoint6(1);
     std::cout << fixedPoint6;
 }
 
-TEST(PriceTest, selfPlus)
+TEST(FPTest, selfPlus)
 {
     FixedPoint<9, int> fixedPoint1(2, 077777);
     FixedPoint<9, int> fixedPoint2(1, 037777);
@@ -36,62 +38,29 @@ TEST(PriceTest, selfPlus)
     std::cout << fixedPoint5;
 }
 
-/*
-TEST(PriceTest, CTOR_Price)
+TEST(FPTest, arrayOfColor)
 {
-    Price<int, 2> p1(5);
-    Price<int, 2> p2(3, 50);
-    Price<int, 2> p3(-3, 50);
-    ASSERT_TRUE(p1.getPrice() == 500);
-    ASSERT_TRUE(p2.getPrice() == 350);
-    ASSERT_TRUE(p3.getPrice() == -250);
+    FixedPoint<2, int> fp(2, 0);
+    Color color;
+    Color* arr = color.calcFixedPointGradient(fp);
+    //std::cout << sizeof(arr)/ sizeof(arr[0]);
+    std::cout << color.getSizeArr(fp);
 }
 
-
-TEST(PriceTest, assignmentOpr)
+TEST(FPTest, asString)
 {
-    Price<int, 2> p1(5);
-    Price<int, 2> p2(3, 50);
-    p1 = p2;
-    ASSERT_TRUE(p1.getPrice() == 350);
-    p2 = 1;
-    ASSERT_TRUE(p2.getPrice() == 100);
+    FixedPoint<2, int> fp(2, 0);
+    std::cout << fp.asString();
 }
 
-TEST(PriceTest, CmpOpr)
+TEST(FPTest, digits2word)
 {
-    Price<int, 2> p1(5);
-    Price<int, 2> p2(5, 5);
-    ASSERT_TRUE(p1 != p2);
-    ASSERT_FALSE(p1 == p2);
-    ASSERT_TRUE(p1 < p2);
+    std::string e = "123.45";
+    std::cout << digitsToWord(e, 0, 2);
 }
 
-TEST(PriceTest, arithmeticOpr)
+TEST(FPTest, number2word)
 {
-    Price<int, 2> p1(5);
-    Price<int, 2> p2(1);
-
-    ASSERT_EQ(p1 += p2, 600);
-    ASSERT_EQ(p1 -= p2, 500);
-    ASSERT_EQ(p1 *= p2, 500);
-    ASSERT_EQ(p1/=p2, 500);
-    ASSERT_EQ(++p2, 200);
-    //std::cout << p2.T2double();
+    FixedPoint<2, int> fp(200, 0);
+    ASSERT_TRUE(numberToWords(fp.getMInteger())== "Two Hundred ");
 }
-
-TEST(PriceTest, phaseII)
-{
-    Price<short, 2> mySalary(120, 35);
-    ASSERT_TRUE(mySalary.getPrice() == 12035);
-
-    Price<long, 2> myOverdraft(99999, 99);
-    ASSERT_TRUE(myOverdraft.getPrice() == 9999999);
-
-    Price<long long, 2> useSelfDebt(145800000000000);
-    ASSERT_TRUE(useSelfDebt.getPrice() == 14580000000000000);
-
-    //myOverdraft = mySalary
-
-}
-*/

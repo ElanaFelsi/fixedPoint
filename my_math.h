@@ -33,4 +33,6 @@ inline int Power<0>(const int x)
 }
 
 
+
+
 #endif //CPP_FIXED_POINT_ELANAFELSI_MY_MATH_H
