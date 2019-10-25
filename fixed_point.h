@@ -23,10 +23,7 @@ public:
 
     FixedPoint &operator+=(const FixedPoint<SIZE, T> &other);
 
-    /*FixedPoint &operator-=(const FixedPoint<SIZE, T> &other);
-    FixedPoint &operator*=(const FixedPoint<SIZE, T> &other);
-    FixedPoint &operator/=(const FixedPoint<SIZE, T> &other);
-    FixedPoint &operator%=(const FixedPoint<SIZE, T> &other);*/
+    /*FixedPoint &operator-=(const FixedPoint<SIZE, T> &other); */
 
     FixedPoint &operator++();
 
@@ -64,7 +61,6 @@ public:
 
     std::string asString();
 
-    std::string writeAsWord();
 
 private:
     T m_integer;

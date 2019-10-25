@@ -64,3 +64,9 @@ TEST(FPTest, number2word)
     FixedPoint<2, int> fp(200, 0);
     ASSERT_TRUE(numberToWords(fp.getMInteger())== "Two Hundred ");
 }
+
+TEST(FPTest, write2word)
+{
+    FixedPoint<2, int> fp(200, 10);
+    writeToWord(fp);
+}

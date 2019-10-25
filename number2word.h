@@ -2,6 +2,7 @@
 #ifndef CPP_FIXED_POINT_ELANAFELSI_NUMBER2WORD_H
 #define CPP_FIXED_POINT_ELANAFELSI_NUMBER2WORD_H
 
+#include "fixed_point.h"
 #include <iostream>
 #include <string>
 using std::string;
@@ -67,6 +68,12 @@ inline string numberToWords(unsigned long long int n)
 inline std::string digitsToWord(const std::string str, std::size_t startIndex, std::size_t endIndex)
 {
     return str.substr(startIndex, endIndex);
+}
+
+template <class T>
+inline std::string writeToWord(T fp)
+{
+    std::cout << numberToWords(fp.getMInteger()) << "integer and " << numberToWords(fp.getMFraction()) << "fraction" << std::endl;
 }
 
 
