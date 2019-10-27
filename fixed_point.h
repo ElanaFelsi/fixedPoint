@@ -9,10 +9,11 @@
 #include "my_math.h"
 
 
-
 template<unsigned int SIZE, typename T = int>
 class FixedPoint {
 public:
+    typedef T theType;
+
     explicit FixedPoint(T integer = 0, int fraction = 0.00);
 
     FixedPoint(const FixedPoint<SIZE, T> &other);

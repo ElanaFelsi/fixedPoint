@@ -177,33 +177,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/build.make CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-price.o: price.cpp.o
-
-.PHONY : price.o
-
-# target to build an object file
-price.cpp.o:
-	$(MAKE) -f CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/build.make CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/price.cpp.o
-.PHONY : price.cpp.o
-
-price.i: price.cpp.i
-
-.PHONY : price.i
-
-# target to preprocess a source file
-price.cpp.i:
-	$(MAKE) -f CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/build.make CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/price.cpp.i
-.PHONY : price.cpp.i
-
-price.s: price.cpp.s
-
-.PHONY : price.s
-
-# target to generate assembly for a file
-price.cpp.s:
-	$(MAKE) -f CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/build.make CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/price.cpp.s
-.PHONY : price.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,9 +192,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... price.o"
-	@echo "... price.i"
-	@echo "... price.s"
 .PHONY : help
 
 

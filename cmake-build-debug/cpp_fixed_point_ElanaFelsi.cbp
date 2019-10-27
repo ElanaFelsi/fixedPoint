@@ -105,12 +105,6 @@
 		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/number2word.h">
 			<Option target="cpp_fixed_point_ElanaFelsi"/>
 		</Unit>
-		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.cpp">
-			<Option target="cpp_fixed_point_ElanaFelsi"/>
-		</Unit>
-		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.h">
-			<Option target="cpp_fixed_point_ElanaFelsi"/>
-		</Unit>
 		<Unit filename="/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

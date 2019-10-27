@@ -65,8 +65,9 @@ TEST(FPTest, number2word)
     ASSERT_TRUE(numberToWords(fp.getMInteger())== "Two Hundred ");
 }
 
-TEST(FPTest, write2word)
+TEST(FPTest, theType)
 {
-    FixedPoint<2, int> fp(200, 10);
-    writeToWord(fp);
+    FixedPoint<2, int>::theType var;
+    ASSERT_TRUE(sizeof(int) == sizeof(var));
+
 }

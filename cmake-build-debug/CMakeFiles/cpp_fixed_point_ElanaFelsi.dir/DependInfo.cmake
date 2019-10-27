@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/TestPrice.cpp" "/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/cmake-build-debug/CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/TestPrice.cpp.o"
   "/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/main.cpp" "/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/cmake-build-debug/CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/main.cpp.o"
-  "/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/price.cpp" "/home/elana/BootCamp-HW/cpp/cpp-fixed-point-ElanaFelsi/cmake-build-debug/CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/price.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

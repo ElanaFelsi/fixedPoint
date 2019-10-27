@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/main.cpp.o CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/price.cpp.o CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/TestPrice.cpp.o  -o cpp_fixed_point_ElanaFelsi 
+/usr/bin/c++  -g   CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/main.cpp.o CMakeFiles/cpp_fixed_point_ElanaFelsi.dir/TestPrice.cpp.o  -o cpp_fixed_point_ElanaFelsi 
